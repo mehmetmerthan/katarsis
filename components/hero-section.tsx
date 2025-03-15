@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -20,8 +20,26 @@ const HeroSection = () => {
         style={{
           backgroundImage: "url('/katarsiz-logo.jpg')",
           filter: "brightness(0.3)",
+          backgroundSize: "contain", // Logo boyutunu ekranın tamamına sığacak şekilde ayarlar
+          backgroundPosition: "center", // Logo ekranın tam ortasında görünür
         }}
       />
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          div {
+            background-size: contain; /* Mobilde logonun taşmasını engeller */
+            background-position: center center; /* Logo her iki yönde ortalanır */
+          }
+        }
+
+        @media (min-width: 769px) {
+          div {
+            background-size: contain; /* Masaüstünde de logo taşmaz */
+            background-position: center top; /* Üst kısma kayar ancak taşmaz */
+          }
+        }
+      `}</style>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
@@ -73,7 +91,6 @@ const HeroSection = () => {
       </div>
     </section>
   );
-}
+};
 
-export default HeroSection
-
+export default HeroSection;
