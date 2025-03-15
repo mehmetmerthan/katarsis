@@ -19,26 +19,12 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/katarsiz-logo.jpg')",
-          filter: "brightness(0.3)",
-          backgroundSize: "cover", // Ekrana tam oturacak şekilde ayarlandı
-          backgroundPosition: "center", // Arka plan ortalanmış olacak
+          backgroundSize: "contain", // Resmin orijinal boyutunu korur ve taşmasını engeller
+          backgroundPosition: "center", // Resmi ortalar
+          backgroundColor: "black", // Arka planı siyah yapar, eksik kısımlar siyah olur
+          filter: "brightness(0.3)", // Görüntüyü karartmak için
         }}
       />
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .background-container {
-            background-size: cover;
-            background-position: center;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .background-container {
-            background-size: cover;
-            background-position: center;
-          }
-        }
-      `}</style>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
