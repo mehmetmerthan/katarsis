@@ -20,23 +20,22 @@ const HeroSection = () => {
         style={{
           backgroundImage: "url('/katarsiz-logo.jpg')",
           filter: "brightness(0.3)",
-          backgroundSize: "contain", // Logo boyutunu ekranın tamamına sığacak şekilde ayarlar
-          backgroundPosition: "center", // Logo ekranın tam ortasında görünür
+          backgroundSize: "cover", // Ekrana tam oturacak şekilde ayarlandı
+          backgroundPosition: "center", // Arka plan ortalanmış olacak
         }}
       />
-
       <style jsx>{`
         @media (max-width: 768px) {
-          div {
-            background-size: contain; /* Mobilde logonun taşmasını engeller */
-            background-position: center center; /* Logo her iki yönde ortalanır */
+          .background-container {
+            background-size: cover;
+            background-position: center;
           }
         }
 
-        @media (min-width: 769px) {
-          div {
-            background-size: contain; /* Masaüstünde de logo taşmaz */
-            background-position: center top; /* Üst kısma kayar ancak taşmaz */
+        @media (max-width: 480px) {
+          .background-container {
+            background-size: cover;
+            background-position: center;
           }
         }
       `}</style>
